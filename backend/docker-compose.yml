@@ -1,4 +1,4 @@
-version: "2"
+version: '2'
 services:
   db:
     platform: linux/x86_64
@@ -12,23 +12,8 @@ services:
     ports:
       - 3306:3306
     volumes:
-      - samsBlogMysql:/var/lib/mysql
-      - ./database/setup_db.sql:/docker-entrypoint-initdb.d/setup_db.sql
-    restart: always
-
-  mongodb:
-    image: mongo:4.2
-    container_name: samsblog-db-mongo
-    environment:
-      MONGO_INITDB_ROOT_USERNAME: root
-      MONGO_INITDB_ROOT_PASSWORD: password
-      MONGO_INITDB_DATABASE: samsblog
-    ports:
-      - 27017:27017
-    volumes:
-      - samsBlogMongo:/data/db
-    restart: always
+      - ./src/database/setup_db.sql:/docker-entrypoint-initdb.d/setup_db.sql
+      - SamsBlogMysql:/var/lib/mysql
 
 volumes:
-  samsBlogMysql:
-  samsBlogMongo:
+  SamsBlogMysql:
