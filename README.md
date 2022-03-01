@@ -1,5 +1,5 @@
-# samsblog`
+# samsblog
 
-#Frontend: React
+# Frontend: React
 
-#Backend: Nestjs, Prisma ORM
+# Backend: Nestjs, Prisma ORM
