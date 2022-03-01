@@ -27,7 +27,6 @@ model Post {
   body      String   @db.VarChar(1000)
   author    User?    @relation(fields: [authorId], references: [id])
   authorId  Int?
-  thumbsUp  String    @db.Text
 }
 
 

@@ -1,4 +1,4 @@
-version: '2'
+version: '1'
 services:
   db:
     platform: linux/x86_64
@@ -12,7 +12,7 @@ services:
     ports:
       - 3306:3306
     volumes:
-      - ./src/database/setup_db.sql:/docker-entrypoint-initdb.d/setup_db.sql
+      - ./backend/src/database/setup_db.sql:/docker-entrypoint-initdb.d/setup_db.sql
       - SamsBlogMysql:/var/lib/mysql
 
 volumes:

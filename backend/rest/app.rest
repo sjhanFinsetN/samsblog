@@ -9,8 +9,8 @@ POST {{host}}/auth/register
 Content-Type: application/json
 
 {
- "email": "sam@finset.io",
- "username": "alex",
+ "email": "sjhan@finset.io",
+ "username": "Sam",
  "password": "12345"
 }
 
@@ -21,7 +21,7 @@ POST {{host}}/auth/login
 Content-Type: application/json
 
 {
- "email": "sam@finset.io",
+ "email": "sjhan@finset.io",
  "password": "12345"
 }
 

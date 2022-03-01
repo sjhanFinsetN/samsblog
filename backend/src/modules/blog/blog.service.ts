@@ -24,7 +24,7 @@ export class BlogService {
         },
       },
       include: {
-        author: true,
+        author: false,
       },
     });
     if (!newPost) {
@@ -43,7 +43,7 @@ export class BlogService {
         id: Number(id),
       },
       include: {
-        author: true,
+        author: false,
       },
     });
 
@@ -85,7 +85,7 @@ export class BlogService {
   async findPosts(): Promise<BlogPost[]> {
     return this.prismaService.post.findMany({
       include: {
-        author: true,
+        author: false,
       },
     });
   }
@@ -100,7 +100,7 @@ export class BlogService {
         id: Number(id),
       },
       include: {
-        author: true,
+        author: false,
       },
     });
 
