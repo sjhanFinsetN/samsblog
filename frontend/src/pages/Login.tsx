@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 // @mui
 import { Container, Typography, TextField, Button } from '@mui/material';
@@ -12,14 +12,14 @@ export default function LandingPage() {
   const [email, setEmail] = useState<string>(''); 
   const [password, setPwd]= useState<string>('');
 
-  function onSubmit(){
+  async function onSubmit(){
     // email, password
     // post request LOGIN
     axios.post('api/account/login', { 
         email: email,
         password:password})
       .then(res =>{
-          // console.log(res.data);
+          console.log(res.data);
           localStorage.setItem('resDataUser',JSON.stringify(res.data.user));
       })
   };
