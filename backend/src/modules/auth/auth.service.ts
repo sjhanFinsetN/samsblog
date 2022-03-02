@@ -67,6 +67,12 @@ export class AuthService {
     if (foundUser) {
       throw new HttpException('user already exists', HttpStatus.CONFLICT);
     }
+
+    // Check email format (BE side too)
+    let pattern="";
+    registerDto.email;
+
+
     const newUser = await this.prismaService.user.create({
       data: {
         email: registerDto.email,

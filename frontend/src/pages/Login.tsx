@@ -4,7 +4,8 @@ import { useNavigate } from 'react-router-dom'
 import { Container, Typography, TextField, Button } from '@mui/material';
 // components
 import Page from '../components/Page';
-import axios from '../utils/axios';
+// import axios from '../utils/axios';
+import axiosLogin  from '../utils/axios';
 
 // ----------------------------------------------------------------------
 
@@ -15,7 +16,7 @@ export default function LandingPage() {
   async function onSubmit(){
     // email, password
     // post request LOGIN
-    axios.post('api/account/login', { 
+    axiosLogin.post('', { 
         email: email,
         password:password})
       .then(res =>{
@@ -39,13 +40,19 @@ export default function LandingPage() {
           <Typography>
             <Button onClick={onSubmit} variant="contained" type='submit'>Submit</Button>
           </Typography>
-      </Container>
+          <Typography>
+            <Button  onClick={()=>{
+                window.location.href='/user-profile';
+              }} variant="outlined" type='button'>Profile
+            </Button>
+          </Typography>
 
-      <Container>
-          <Button  onClick={()=>{
-              window.location.href='/user-profile';
-            }} variant="contained" type='button'>Profile
-          </Button>
+          <Typography>
+            <Button onClick={()=>{
+                window.location.href='/posts';
+              }} variant="outlined" type='button'>Posts
+            </Button>
+          </Typography>
       </Container>
     </Page>
   );

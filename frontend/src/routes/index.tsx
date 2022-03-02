@@ -24,6 +24,7 @@ export default function Router() {
         { path: '/landing', element: <LandingPage /> },
         { path: '/login', element: <LoginPage /> },
         { path: '/user-profile', element: <UserProfilePage /> },
+        { path: '/posts', element: <PostsPage />}
       ],
     },
     {
@@ -42,4 +43,5 @@ export default function Router() {
 const LandingPage = Loadable(lazy(() => import('../pages/Landing')));
 const LoginPage = Loadable(lazy(() => import('../pages/Login')));
 const UserProfilePage = Loadable(lazy(() => import('../pages/UserProfile')));
+const PostsPage = Loadable(lazy(() => import('../pages/Posts')));
 const NotFound = Loadable(lazy(() => import('../pages/Page404')));

@@ -1,5 +1,5 @@
 // @mui
-import { Container, Typography } from '@mui/material';
+import { Container, Typography, Box } from '@mui/material';
 // components
 import Page from '../components/Page';
 
@@ -12,17 +12,19 @@ export default function UserProfilePage() {
   if(user) {
     return (
       <Page title="User Profile Page">
-        <Container>
-          <Typography variant="h3" component="h1" paragraph>
-            User Profile Page
-          </Typography>
-          <Typography gutterBottom>
-            Your name is {user.displayName}
-          </Typography>
-          <Typography gutterBottom>
-            Your Email is {user.email}
-          </Typography>
-        </Container>
+        <Box>
+          <Container>
+            <Typography variant="h3" component="h1" paragraph>
+              User Profile Page
+            </Typography>
+            <Typography gutterBottom>
+              Your name is {user.username}
+            </Typography>
+            <Typography gutterBottom>
+              Your Email is {user.email}
+            </Typography>
+          </Container>
+        </Box>
       </Page>
     );
   } else {

@@ -69,7 +69,7 @@ typings/
 .yarn-integrity
 
 # dotenv environment variables file
-.env
+# .env # needed for docker-compose.yml
 .env.test
 
 # parcel-bundler cache (https://parceljs.org/)

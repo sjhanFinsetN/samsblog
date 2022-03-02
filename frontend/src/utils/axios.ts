@@ -2,15 +2,26 @@ import axios from 'axios';
 
 // ----------------------------------------------------------------------
 
-const axiosInst = axios.create({
+const axiosInstance = axios.create({
   baseURL: 'http://localhost:3001'
 });
+// const axiosLogin = axios.create({
+//   baseURL: 'http://localhost:3001/auth/login'
+// });
 
-const axiosInstance = axios.create();
 
-axiosInstance.interceptors.response.use(
-  (response) => response,
-  (error) => Promise.reject((error.response && error.response.data) || 'Something went wrong')
-);
+// export const axiosPosts = axios.create({
+//   baseURL: 'http://localhost:3001/blog/posts'
+// });
 
-export default axiosInstance;
+// axiosLogin.interceptors.response.use(
+//   (response) => response,
+//   (error) => Promise.reject((error.response && error.response.data) || 'Something went wrong')
+// );
+
+// axiosPosts.interceptors.response.use(
+//   (response) => response,
+//   (error) => Promise.reject((error.response && error.response.data) || 'Something went wrong')
+// );
+
+export default axiosInstance ;
