@@ -3,31 +3,45 @@ import { useNavigate } from 'react-router-dom'
 // @mui
 import { Container, Typography, TextField, Button } from '@mui/material';
 // components
-import Page from '../components/Page';
-// import axios from '../utils/axios';
-import axiosLogin  from '../utils/axios';
+import Page from '../../components/Page';
+import { setSession } from '../../utils/jwt';
+import axiosLogin  from '../../utils/axios';
 
 // ----------------------------------------------------------------------
 
 export default function LandingPage() {
-  const [email, setEmail] = useState<string>(''); 
-  const [password, setPwd]= useState<string>('');
+  const [ email, setEmail ] = useState<string>(''); 
+  const [ password, setPwd ]= useState<string>('');
+
+  // For debuggin
+  // try{
+  //   const user =JSON.parse(localStorage.getItem('resDataUser')||'{}');
+  //   console.log(user);
+  // } catch(e) {
+  //   console.log("Error:"+e);
+  // }
+  
+  const navigate=useNavigate();
 
   async function onSubmit(){
     // email, password
     // post request LOGIN
-    axiosLogin.post('', { 
+    axiosLogin.post('auth/login', { 
         email: email,
         password:password})
       .then(res =>{
-          console.log(res.data);
-          localStorage.setItem('resDataUser',JSON.stringify(res.data.user));
-      })
+          //console.log(res.data);
+          localStorage.setItem('resDataUser',JSON.stringify(res.data.user)); // may not be the perfect way
+          setSession(res.data.token.accessToken);
+          navigate('/blog/posts'); // move to posts if successful
+      }).catch(()=>{
+        alert('Login failed!');
+      });
   };
 
   return (
     <Page title="Login Page">
-      <Container>
+      <Container maxWidth='sm'>
           <Typography variant="h3" component="h1" paragraph>
             Login Page
           </Typography>
@@ -39,19 +53,6 @@ export default function LandingPage() {
           </Typography>
           <Typography>
             <Button onClick={onSubmit} variant="contained" type='submit'>Submit</Button>
-          </Typography>
-          <Typography>
-            <Button  onClick={()=>{
-                window.location.href='/user-profile';
-              }} variant="outlined" type='button'>Profile
-            </Button>
-          </Typography>
-
-          <Typography>
-            <Button onClick={()=>{
-                window.location.href='/posts';
-              }} variant="outlined" type='button'>Posts
-            </Button>
           </Typography>
       </Container>
     </Page>

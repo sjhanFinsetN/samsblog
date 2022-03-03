@@ -20,11 +20,11 @@ export default function Router() {
       path: '/',
       element: <MainLayout />,
       children: [
-        { element: <Navigate to="/landing" replace />, index: true },
-        { path: '/landing', element: <LandingPage /> },
-        { path: '/login', element: <LoginPage /> },
-        { path: '/user-profile', element: <UserProfilePage /> },
-        { path: '/posts', element: <PostsPage />}
+        { element: <Navigate to="/intro" replace />, index: true },
+        { path: '/intro', element: <IntroPage /> },
+        { path: '/user/login', element: <LoginPage /> },
+        { path: '/user/profile', element: <UserProfilePage /> },
+        { path: '/blog/posts', element: <PostsPage />}
       ],
     },
     {
@@ -40,8 +40,8 @@ export default function Router() {
 }
 
 // Routes
-const LandingPage = Loadable(lazy(() => import('../pages/Landing')));
-const LoginPage = Loadable(lazy(() => import('../pages/Login')));
-const UserProfilePage = Loadable(lazy(() => import('../pages/UserProfile')));
-const PostsPage = Loadable(lazy(() => import('../pages/Posts')));
+const IntroPage = Loadable(lazy(() => import('../pages/Intro')));
+const LoginPage = Loadable(lazy(() => import('../pages/user/Login')));
+const UserProfilePage = Loadable(lazy(() => import('../pages/user/UserProfile')));
+const PostsPage = Loadable(lazy(() => import('../pages/blog/Posts')));
 const NotFound = Loadable(lazy(() => import('../pages/Page404')));

@@ -12,17 +12,23 @@ const isValidToken = (accessToken: string) => {
   const decoded = jwtDecode<{ exp: number }>(accessToken);
   const currentTime = Date.now() / 1000;
 
-  return decoded.exp > currentTime;
+  return decoded.exp > currentTime; 
 };
 
 const setSession = (accessToken: string | null) => {
   if (accessToken) {
     localStorage.setItem('accessToken', accessToken);
     axios.defaults.headers.common.Authorization = `Bearer ${accessToken}`;
+    console.log("Login successful and token store:"+accessToken);
   } else {
     localStorage.removeItem('accessToken');
     delete axios.defaults.headers.common.Authorization;
   }
 };
 
-export { isValidToken, setSession, verify, sign };
+const Auth = () => {
+  if(isValidToken(localStorage.getItem('accessToken')||'')) return true;
+  else return false;
+}
+
+export { isValidToken, setSession, verify, sign, Auth };

@@ -2,7 +2,7 @@
 import { Box, Container, Typography } from '@mui/material';
 import { useState,useEffect } from 'react';
 // components
-import Page from '../components/Page';
+import Page from '../../components/Page';
 // import { axiosPosts } from '../utils/axios'
 import { getPosts } from 'src/api/blog';
 
@@ -22,12 +22,8 @@ export default function PostsPage() {
     useEffect(() => {
         getPosts().then((res) => {
             console.log('res >> ', res)
+            setPosts(res.data);
         })
-        // axiosPosts.get('/').then(res =>{
-        //     console.log(res.data);
-        //     setPosts(res.data)
-        // })
-        // 
     },[])
 
     return (
