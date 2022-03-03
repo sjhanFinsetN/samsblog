@@ -43,7 +43,7 @@ const Navbar = () => {
 
     return (
       <React.Fragment>
-        <Container maxWidth='sm'>
+        <Container maxWidth='sm' sx={{textAlign:'center',backgroundColor:'#EFE'}}>
             <Box sx={{ display: 'flex', alignItems: 'center', textAlign: 'center' }}>
             <Typography sx={{ minWidth: 100 }} onClick={()=>navigate('/intro')}><Link sx={{ cursor:'pointer' }}>Introduction</Link></Typography>
             <Typography sx={{ minWidth: 100 }} onClick={()=>navigate('/blog/posts')}><Link sx={{ cursor:'pointer'}}>Blog Posts</Link></Typography>

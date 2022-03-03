@@ -1,7 +1,7 @@
 import { Helmet } from 'react-helmet-async';
 import { forwardRef, ReactNode } from 'react';
 // @mui
-import { Box, BoxProps } from '@mui/material';
+import { Box, BoxProps, Container } from '@mui/material';
 
 // ----------------------------------------------------------------------
 
@@ -17,10 +17,11 @@ const Page = forwardRef<HTMLDivElement, Props>(({ children, title = '', meta, ..
       <title>{`${title} | Finset N`}</title>
       {meta}
     </Helmet>
-
-    <Box ref={ref} {...other}>
+    <Container maxWidth='sm' sx={{backgroundColor:'#F5F5FF',padding:'10px'}}> 
+    <Box ref={ref} {...other} maxWidth='sm'>
       {children}
     </Box>
+    </Container>
   </>
 ));
 
