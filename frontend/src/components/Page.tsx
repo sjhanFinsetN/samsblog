@@ -17,8 +17,8 @@ const Page = forwardRef<HTMLDivElement, Props>(({ children, title = '', meta, ..
       <title>{`${title} | Finset N`}</title>
       {meta}
     </Helmet>
-    <Container maxWidth='sm' sx={{backgroundColor:'#F5F5FF',padding:'10px'}}> 
-    <Box ref={ref} {...other} maxWidth='sm'>
+    <Container maxWidth='md' sx={{backgroundColor:'#F5F5FF',padding:'10px'}}> 
+    <Box ref={ref} {...other} maxWidth='md'>
       {children}
     </Box>
     </Container>

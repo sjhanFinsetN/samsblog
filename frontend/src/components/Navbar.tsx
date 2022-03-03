@@ -21,6 +21,7 @@ import Link from '@mui/material/Link';
 import { useNavigate } from 'react-router-dom';
 
 import { setSession, Auth } from 'src/utils/jwt';
+import { Button } from '@mui/material';
 
 const Navbar = () => {
     const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
@@ -43,10 +44,10 @@ const Navbar = () => {
 
     return (
       <React.Fragment>
-        <Container maxWidth='sm' sx={{textAlign:'center',backgroundColor:'#EFE'}}>
+        <Container maxWidth='md' sx={{textAlign:'center',backgroundColor:'#FFF3F3', padding:'10px'}}>
             <Box sx={{ display: 'flex', alignItems: 'center', textAlign: 'center' }}>
-            <Typography sx={{ minWidth: 100 }} onClick={()=>navigate('/intro')}><Link sx={{ cursor:'pointer' }}>Introduction</Link></Typography>
-            <Typography sx={{ minWidth: 100 }} onClick={()=>navigate('/blog/posts')}><Link sx={{ cursor:'pointer'}}>Blog Posts</Link></Typography>
+            <Typography sx={{ minWidth: 100 }} onClick={()=>navigate('/intro')}><Button sx={{ cursor:'pointer', color:'blue' }}>Introduction</Button></Typography>
+            <Typography sx={{ minWidth: 100 }} onClick={()=>navigate('/blog/posts')}><Button sx={{ cursor:'pointer', color:'blue' }}>Blog Posts</Button></Typography>
             <Tooltip title="Account settings">
                 <IconButton
                 onClick={handleClick}
